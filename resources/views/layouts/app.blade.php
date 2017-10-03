@@ -8,73 +8,78 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Book07') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+      <nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="{{route('home')}}">
+            <img src="{{asset('images/book07_logo.png')}}" alt="Book07">
+          </a>
+        </div>
+        <div class="navbar-menu">
+          <div class="navbar-start">
+            <a href="#" class="navbar-item">讀經</a>
+            <a href="#" class="navbar-item">分類</a>
+            <a href="#" class="navbar-item">書單</a>
+            <a href="#" class="navbar-item">書評</a>
+          </div>
+          <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">繁</a>
+              <div class="navbar-dropdown is-right">
+                <a href="#" class="navbar-item">繁體中文</a>
+                <a href="#" class="navbar-item">简体中文</a>
+                <a href="#" class="navbar-item">English</a>
+              </div>
             </div>
-        </nav>
-
+            @if (!Auth::check())
+            <div class="navbar-item"><a href="{{ route('login') }}" class="button is-primary">登入/註冊</a></div>
+            @else
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">AnnJoy</a>
+              <div class="navbar-dropdown is-right">
+                <a href="#" class="navbar-item">
+                  <span class="icon"><i class="fa fa-fw fa-pencil-square-o" aria-hidden="true"></i></span>&nbsp;
+                  靈修＆筆記</a>
+                <a href="#" class="navbar-item">
+                  <span class="icon"><i class="fa fa-fw fa-book" aria-hidden="true"></i></span>&nbsp;
+                  書櫃</a>
+                <a href="#" class="navbar-item">
+                  <span class="icon"><i class="fa fa-fw fa-commenting" aria-hidden="true"></i></span>&nbsp;
+                  書評</a>
+                <a href="#" class="navbar-item">
+                  <span class="icon"><i class="fa fa-fw fa-bookmark" aria-hidden="true"></i></span>&nbsp;
+                  書摘</a>
+                <a href="#" class="navbar-item">
+                  <span class="icon"><i class="fa fa-fw fa-list" aria-hidden="true"></i></span>&nbsp;
+                  書單</a>
+                <a href="#" class="navbar-item">
+                  <span class="icon"><i class="fa fa-fw fa-bell" aria-hidden="true"></i></span>&nbsp;
+                  動態</a>
+                <hr class="navbar-divider">
+                <a href="#" class="navbar-item">
+                  <span class="icon"><i class="fa fa-fw fa-cog" aria-hidden="true"></i></span>&nbsp;
+                  帳號設定</a>
+                <a href="#" class="navbar-item">
+                  <span class="icon"><i class="fa fa-fw fa-sign-out" aria-hidden="true"></i></span>&nbsp;
+                  登出</a>
+              </div>
+            </div>
+            @endif
+          </div>
+        </div>
+      </nav>
         @yield('content')
     </div>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+
 </body>
+
 </html>
