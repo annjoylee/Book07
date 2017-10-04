@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'accepted'             => 'The :attribute must be accepted.',
+    'accepted'             => '註冊必須接受:attribute',
     'active_url'           => 'The :attribute is not a valid URL.',
     'after'                => 'The :attribute must be a date after :date.',
     'after_or_equal'       => 'The :attribute must be a date after or equal to :date.',
@@ -30,7 +30,7 @@ return [
         'array'   => 'The :attribute must have between :min and :max items.',
     ],
     'boolean'              => 'The :attribute field must be true or false.',
-    'confirmed'            => 'The :attribute confirmation does not match.',
+    'confirmed'            => '輸入的:attribute並不吻合',
     'date'                 => 'The :attribute is not a valid date.',
     'date_format'          => 'The :attribute does not match the format :format.',
     'different'            => 'The :attribute and :other must be different.',
@@ -38,7 +38,7 @@ return [
     'digits_between'       => 'The :attribute must be between :min and :max digits.',
     'dimensions'           => 'The :attribute has invalid image dimensions.',
     'distinct'             => 'The :attribute field has a duplicate value.',
-    'email'                => 'The :attribute must be a valid email address.',
+    'email'                => '請輸入有效的:attribute',
     'exists'               => 'The selected :attribute is invalid.',
     'file'                 => 'The :attribute must be a file.',
     'filled'               => 'The :attribute field must have a value.',
@@ -119,6 +119,7 @@ return [
     'attributes' => [
       'email'                  => '電子郵件',
       'password'               => '密碼',
+      'terms'                  => '服務條款及隱私權條款',
     ],
 
 ];

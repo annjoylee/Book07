@@ -1,70 +1,77 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('password.request') }}">
-                        {{ csrf_field() }}
+＠if (session('status'))
+  <div class="notification is-success">
+    {{ session('status') }}
+  </div>
+@endif
 
-                        <input type="hidden" name="token" value="{{ $token }}">
+<div class="columns is-centered m-t-5">
+  <div class="column is-one-third">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          重設密碼
+        </p>
+      </header>
+      <div class="card-content">
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+        <form action="{{ route('password.request') }}" method="POST" role="form" novalidate>
+        {{ csrf_field() }}
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" required autofocus>
+        <input type="hidden" name="token" value="{{ $token }}">
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-
-                                @if ($errors->has('password_confirmation'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Reset Password
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+        <div class="field">
+          <label for="email" class="label">電子郵件</label>
+          <div class="control has-icons-left">
+            <input class="input {{ $errors->has('email') ? 'is-danger' : '' }}" type="email" name="email" id="email" placeholder="電子郵件" value="{{ $email or old('email') }}" required>
+            <span class="icon is-small is-left">
+              <i class="fa fa-envelope"></i>
+            </span>
+          </div>
+          @if ($errors->has('email'))
+          <p class="help is-danger">{{ $errors->first('email') }}</p>
+          @endif
         </div>
-    </div>
-</div>
+
+        <div class="field">
+          <label for="password" class="label">密碼</label>
+          <div class="control has-icons-left">
+            <input class="input {{ $errors->has('password') ? 'is-danger' : '' }}" type="password" name="password" id="password" placeholder="密碼" required>
+            <span class="icon is-small is-left">
+              <i class="fa fa-lock"></i>
+            </span>
+          </div>
+          @if ($errors->has('password'))
+          <p class="help is-danger">{{ $errors->first('password') }}</p>
+          @endif
+        </div>
+
+        <div class="field">
+          <label for="password_confirmation" class="label">確認密碼</label>
+          <div class="control has-icons-left">
+            <input class="input {{ $errors->has('password_confirmation') ? 'is-danger' : '' }}" type="password" name="password_confirmation" id="password_confirmation" placeholder="確認密碼" required>
+            <span class="icon is-small is-left">
+              <i class="fa fa-lock"></i>
+            </span>
+          </div>
+          @if ($errors->has('password'))
+          <p class="help is-danger">{{ $errors->first('password') }}</p>
+          @endif
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <button class="button is-primary is-fullwidth" type="submit" name="button">重設密碼</button>
+          </div>
+        </div>
+
+      </form>
+
+    </div><!--end of card-centent-->
+  </div><!--end of card-->
+  </div><!--end of column-->
+</div><!--end of columns-->
 @endsection

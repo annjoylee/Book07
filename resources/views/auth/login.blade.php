@@ -11,12 +11,12 @@
       </header>
       <div class="card-content">
 
-        <form action="{{ route('login') }}" method="POST" role="form">
+        <form action="{{ route('login') }}" method="POST" role="form" novalidate>
         {{ csrf_field() }}
 
         <div class="field">
           <div class="control has-icons-left">
-            <input class="input {{ $errors->has('email') ? 'is-danger' : '' }}" type="email" name="email" id="email" placeholder="電子郵件" value="{{ old('email') }}">
+            <input class="input {{ $errors->has('email') ? 'is-danger' : '' }}" type="email" name="email" id="email" placeholder="電子郵件" value="{{ old('email') }}" required>
             <span class="icon is-small is-left">
               <i class="fa fa-envelope"></i>
             </span>
@@ -28,7 +28,7 @@
 
         <div class="field">
           <div class="control has-icons-left">
-            <input class="input {{ $errors->has('password') ? 'is-danger' : '' }}" type="password" name="email" id="password" placeholder="密碼">
+            <input class="input {{ $errors->has('password') ? 'is-danger' : '' }}" type="password" name="password" id="password" placeholder="密碼" required>
             <span class="icon is-small is-left">
               <i class="fa fa-lock"></i>
             </span>
@@ -40,7 +40,7 @@
 
         <div class="field">
           <div class="control">
-            <b-checkbox {{ old('remember') ? 'checked' : '' }}>記得我</b-checkbox>
+            <b-checkbox name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>記得我</b-checkbox>
           </div>
         </div>
 
@@ -56,7 +56,7 @@
   </div><!--end of card-->
     <h5 class="has-text-centered m-t-10"><a class="is-muted" href="{{ route('password.request') }}">忘記密碼？</a></h5>
   </div><!--end of column-->
-</div>
+</div><!--end of columns-->
 <hr>
 <div class="columns is-centered">
   <div class="column is-one-third">
