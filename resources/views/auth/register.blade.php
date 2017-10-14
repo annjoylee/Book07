@@ -75,9 +75,9 @@
         <h4 class="line-text-line"><span>選填欄位</span></h4>
 
         <div class="field">
-          <label for="nickname" class="label">暱稱</label>
+          <label for="name" class="label">名稱</label>
           <div class="control has-icons-left">
-            <input class="input" type="text" name="nickname" id="nickname">
+            <input class="input" type="text" name="name" id="name">
             <span class="icon is-small is-left">
               <i class="fa fa-user"></i>
             </span>

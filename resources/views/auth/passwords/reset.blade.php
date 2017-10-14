@@ -1,13 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-
-＠if (session('status'))
+@if (session('status'))
   <div class="notification is-success">
     {{ session('status') }}
   </div>
 @endif
-
 <div class="columns is-centered m-t-5">
   <div class="column is-one-third">
     <div class="card">
