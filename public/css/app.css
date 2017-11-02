@@ -7146,7 +7146,7 @@ a.navbar-item.is-active,
 }
 
 .navbar-item img {
-  max-height: 1.75rem;
+  max-height: 2.5rem;
 }
 
 .navbar-item.has-dropdown {
@@ -12341,6 +12341,9 @@ label.panel-block:hover {
 
 .b-table .table {
   width: 100%;
+  border: 0.125em solid transparent;
+  border-radius: 3px;
+  border-collapse: separate;
 }
 
 .b-table .table th {
@@ -12360,11 +12363,6 @@ label.panel-block:hover {
   margin-left: 0.5rem;
   margin-right: 0;
   font-size: 1rem;
-  opacity: 0;
-}
-
-.b-table .table th .th-wrap .icon.is-visible {
-  opacity: 1;
 }
 
 .b-table .table th .th-wrap.is-numeric {
@@ -12413,6 +12411,10 @@ label.panel-block:hover {
   background-color: transparent;
 }
 
+.b-table .table tr:not(.is-selected).is-hovered {
+  background: rgba(181, 181, 181, 0.35) !important;
+}
+
 .b-table .table .checkbox-cell {
   width: 40px;
 }
@@ -12434,6 +12436,10 @@ label.panel-block:hover {
 
 .b-table .table .detail td .detail-container {
   padding: 1rem;
+}
+
+.b-table .table:focus {
+  border: 0.125em solid rgba(135, 198, 146, 0.5);
 }
 
 .b-table .table.is-bordered th.is-current-sort,
@@ -12508,21 +12514,7 @@ label.panel-block:hover {
 }
 
 .b-table .level {
-  padding-bottom: 1rem;
-}
-
-.b-table .level .pagination .info {
-  padding-right: 0.5rem;
-}
-
-@media screen and (min-width: 769px), print {
-  .b-table .level .level-left {
-    padding-left: 1rem;
-  }
-
-  .b-table .level .level-right {
-    padding-right: 1rem;
-  }
+  padding-bottom: 1.5rem;
 }
 
 .b-table.is-loading {
@@ -16187,12 +16179,16 @@ label.panel-block:hover {
   clip: auto;
 }
 
+.navbar.has-shadow {
+  z-index: 100;
+}
+
 .navbar-item {
   padding: 0.25rem 1rem 0.25rem 1rem;
 }
 
-.navbar-item img {
-  max-height: 2.5rem;
+.navbar-burger {
+  height: auto;
 }
 
 .b-checkbox.checkbox input[type=checkbox] + .check {
@@ -16583,6 +16579,20 @@ label.panel-block:hover {
 
 .p-r-100 {
   padding-right: 100px !important;
+}
+
+.side-menu {
+  height: 100vh;
+  background-color: #e4efe6;
+  margin-left: 5px;
+}
+
+.working-area {
+  margin: 15px 10px 10px 15px;
+}
+
+.columns.responsive-password {
+  margin-bottom: 0;
 }
 
 .is-orange0 {

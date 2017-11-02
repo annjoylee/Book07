@@ -1,0 +1,15 @@
+.side-menu {
+  height: 100vh;
+  background-color: #e4efe6;
+  margin-left: 5px;
+}
+
+.working-area {
+  margin: 15px 10px 10px 15px;
+}
+
+.columns {
+  &.responsive-password {
+    margin-bottom: 0;
+  }
+}

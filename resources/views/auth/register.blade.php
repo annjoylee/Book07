@@ -17,7 +17,7 @@
         <div class="field">
           <label for="email" class="label">電子郵件</label>
           <div class="control has-icons-left">
-            <input class="input {{ $errors->has('email') ? 'is-danger' : '' }}" type="email" name="email" id="email" placeholder="請輸入Email" required>
+            <input class="input {{ $errors->has('email') ? 'is-danger' : '' }}" type="email" name="email" id="email" placeholder="請輸入Email" required v-model="email">
             <span class="icon is-small is-left">
               <i class="fa fa-envelope"></i>
             </span>
@@ -52,9 +52,6 @@
                   <i class="fa fa-lock"></i>
                 </span>
               </div>
-              @if ($errors->has('password'))
-              <p class="help is-danger">{{ $errors->first('password') }}</p>
-              @endif
             </div>
           </div>
         </div>
@@ -71,13 +68,12 @@
           </div>
         </div>
 
-
         <h4 class="line-text-line"><span>選填欄位</span></h4>
 
         <div class="field">
           <label for="name" class="label">名稱</label>
           <div class="control has-icons-left">
-            <input class="input" type="text" name="name" id="name">
+            <input class="input" type="text" name="name" id="name" :value="autoname">
             <span class="icon is-small is-left">
               <i class="fa fa-user"></i>
             </span>
@@ -103,4 +99,22 @@
     <a class="button is-primary is-fullwidth" href="{{ route('login') }}">登入</a>
   </div>
 </div>
+@endsection
+
+
+@section('scripts')
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        email:''
+      },
+      computed: {
+        autoname: function () {
+          var emailSplit = this.email.split('@')
+          return emailSplit[0]
+        }
+      }
+    });
+  </script>
 @endsection

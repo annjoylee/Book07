@@ -17,4 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::prefix('admin')->middleware('role:curator|administrator|librarian|assistant|member')->group(function() {
+  Route::get('/', 'AdminController@dashboard')->name('admin');
+  Route::resource('users', 'UserController');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
