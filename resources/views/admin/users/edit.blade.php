@@ -36,11 +36,11 @@
       <label for="password" class="label">密碼</label>
       <div class="block">
         <div class="control">
-          <b-radio v-model="password_options" native-value="keep">不變更密碼</b-radio>
-          <b-radio v-model="password_options" native-value="auto">自動產生新密碼</b-radio>
-          <b-radio v-model="password_options" native-value="manual">手動輸入新密碼</b-radio>
+          <b-radio v-model="passwordOptions" name="password_options" native-value="keep">不變更密碼</b-radio>
+          <b-radio v-model="passwordOptions" name="password_options" native-value="auto">自動產生新密碼</b-radio>
+          <b-radio v-model="passwordOptions" name="password_options" native-value="manual">手動輸入新密碼</b-radio>
           <p class="control m-t-5">
-            <input type="text" class="input" name="password" id="password" v-if="password_options == 'manual'" placeholder="手動輸入新密碼">
+            <input type="text" class="input" name="password" id="password" v-if="passwordOptions == 'manual'" placeholder="手動輸入新密碼">
           </p>
         </div>
       </div>
@@ -66,7 +66,7 @@
     var app = new Vue({
       el: '#app',
       data: {
-        password_options:'keep'
+        passwordOptions:'keep'
       }
     })
   </script>

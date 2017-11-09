@@ -16595,6 +16595,10 @@ label.panel-block:hover {
   margin-bottom: 0;
 }
 
+a.is-info {
+  color: #7198a3;
+}
+
 .is-orange0 {
   color: #ffd5ae;
 }

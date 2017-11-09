@@ -12,10 +12,10 @@
   <ul class="menu-list">
     <li><a href="{{ route('users.index') }}">使用者名單</a></li>
     <li>
-      <a>職責＆權限</a>
+      <a>身份＆權限</a>
       <ul>
-        <li><a>職責</a></li>
-        <li><a>權限</a></li>
+        <li><a href="{{ route('roles.index') }}">身份列表</a></li>
+        <li><a href="{{ route('permissions.index') }}">權限列表</a></li>
       </ul>
     </li>
   </ul>

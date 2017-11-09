@@ -6,7 +6,7 @@
       <h1 class="title is-5">使用者名單</h1>
     </div>
     <div class="column">
-      <a href="{{ route('users.create')}}" class="button is-primary is-pulled-left">新增</a>
+      <a href="{{ route('users.create') }}" class="button is-primary is-pulled-left">新增</a>
     </div>
   </div>
 
@@ -16,9 +16,10 @@
         <tr>
           <th>ID</th>
           <th>Email</th>
-          <th>Name</th>
-          <th>Date Created</th>
-          <th>Action</th>
+          <th>名稱</th>
+          <th>加入時間</th>
+          <th>上次更新時間</th>
+          <th>動作</th>
         </tr>
       </thead>
       <tbody>
@@ -28,6 +29,7 @@
             <td>{{ $user->email }}</td>
             <td>{{ $user->name }}</td>
             <td>{{ $user->created_at }}</td>
+            <td>{{ $user->updated_at }}</td>
             <td>
               <a href="{{ route('users.show', $user->id) }}" class="button is-primary is-small">詳細</a>
               <a href="{{ route('users.edit', $user->id) }}" class="button is-info is-small">編輯</a>

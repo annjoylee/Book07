@@ -38,6 +38,10 @@
           <td>{{ $user->created_at }}</td>
         </tr>
         <tr>
+          <td>上次更新時間</td>
+          <td>{{ $user->updated_at }}</td>
+        </tr>
+        <tr>
           <td class="is-narrow">上次上站時間</td>
           <td></td>
         </tr>

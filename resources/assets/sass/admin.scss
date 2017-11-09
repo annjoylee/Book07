@@ -13,3 +13,10 @@
     margin-bottom: 0;
   }
 }
+
+
+a {
+  &.is-info {
+    color: $info;
+  }
+}

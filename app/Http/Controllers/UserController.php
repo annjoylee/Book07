@@ -41,7 +41,7 @@ class UserController extends Controller
         $this->validateWith([
           'name' => 'required|max:255',
           'email' => 'required|email|unique:users',
-          'password' => 'sometimes|string|min:6|confirmed'
+          'password' => 'sometimes|string|min:6'
         ]);
 
         if (!empty($request->password)) {

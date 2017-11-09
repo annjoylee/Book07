@@ -23,7 +23,7 @@
 
     <div class="field">
       <label for="password" class="label">密碼</label>
-      <div class="control has-icons-left" v-if="!auto_password">
+      <div class="control has-icons-left" v-if="!autoPassword">
         <input class="input {{ $errors->has('password') ? 'is-danger' : '' }}" name="password" id="password" placeholder="手動輸入密碼">
         <span class="icon is-small is-left">
           <i class="fa fa-lock"></i>
@@ -35,7 +35,7 @@
     @endif
     <div class="field">
       <div class="control">
-        <b-checkbox name="auto_password" v-model="auto_password">自動生成密碼</b-checkbox>
+        <b-checkbox name="auto_password" v-model="autoPassword">自動生成密碼</b-checkbox>
       </div>
     </div>
 
@@ -43,7 +43,7 @@
     <div class="field">
       <label for="name" class="label">名稱</label>
       <div class="control has-icons-left">
-        <input class="input" type="text" name="name" id="name" placeholder="使用者名稱" :value="auto_name">
+        <input class="input" type="text" name="name" id="name" placeholder="使用者名稱" :value="autoName">
         <span class="icon is-small is-left">
           <i class="fa fa-user"></i>
         </span>
@@ -68,10 +68,10 @@
       el: '#app',
       data: {
         email:'',
-        auto_password:true
+        autoPassword:true
       },
       computed: {
-        auto_name: function() {
+        autoName: function() {
           var emailSplit = this.email.split('@')
           return emailSplit[0]
         }
