@@ -1,12 +1,40 @@
-.side-menu {
-  height: 100vh;
+#admin-menu {
+  position: absolute;
+  width: 180px;
+  height: 120vh;
   background-color: #e4efe6;
-  margin-left: 5px;
+  left: -180px;
+  overflow-y: scroll;
+  transition: left 0.3s ease-in-out;
+  z-index: 90;
+
+  &.is-active {
+    left:0;
+    transition: left 0.3s ease-in-out;
+  }
+
+  @include desktop {
+    left: 5px;
+  }
+}
+
+#admin-slide-button {
+  transition: 0.3s;
+  &.is-active {
+    transition: 0.3s;
+    transform: rotateY(180deg);
+  }
 }
 
 .working-area {
-  margin: 15px 10px 10px 15px;
+
+  margin: 20px 20px 20px 20px;
+
+  @include desktop {
+    margin: 20px 20px 20px 200px;
+  }
 }
+
 
 .columns {
   &.responsive-password {
@@ -14,6 +42,9 @@
   }
 }
 
+.mobile-firendly-table {
+  overflow-x: auto;
+}
 
 a {
   &.is-info {

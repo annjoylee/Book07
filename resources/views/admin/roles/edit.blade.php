@@ -3,7 +3,7 @@
 @section('content')
 
   <h1 class="title is-4">編輯身份：<em>{{ $role->name }}</em></h1>
-  <div class="box">
+  <div class="box" id="role-update-form">
     <form action="{{ route('roles.update', $role->id) }}" method="POST" role="form" novalidate>
     {{ method_field('PUT') }}
     {{ csrf_field() }}
@@ -37,7 +37,6 @@
           </div>
         </div>
         @endforeach
-
       </div>
 
       <div class="field">
@@ -49,20 +48,24 @@
 
     </form>
   </div>
-
 @endsection
 
 
 @section('scripts')
 
 <script>
-var app = new Vue({
-  el: '#app',
-  data: {
-    permissions: {!! $role->permissions->pluck('id') !!}
-  }
-})
-
+  var adminMenu = new Vue({
+    el: '#admin-menu',
+    data: {
+      isOpen: true //side-menu
+    }
+  })
+  var roleUpdateForm = new Vue({
+    el: '#role-update-form',
+    data: {
+      permissions: {!! $role->permissions->pluck('id') !!}
+    }
+  })
 </script>
 
 @endsection

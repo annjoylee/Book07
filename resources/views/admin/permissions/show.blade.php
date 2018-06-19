@@ -3,7 +3,7 @@
 @section('content')
   <div class="columns">
     <div class="column is-narrow">
-      <h1 class="title is-5">權限資料：<em>{{ $permission->name }}</em></h1>
+      <h1 class="title is-4">權限資料：<em>{{ $permission->name }}</em></h1>
     </div>
     <div class="column">
     </div>
@@ -40,4 +40,15 @@
     </table>
     <a href="{{ route('permissions.edit', $permission->id)}}" class="button is-info">編輯</a>
   </div>
+@endsection
+
+@section('scripts')
+<script>
+  var adminMenu = new Vue({
+    el: '#admin-menu',
+    data: {
+      isOpen: true //side-menu
+    }
+  })
+</script>
 @endsection

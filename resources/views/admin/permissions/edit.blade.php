@@ -2,7 +2,7 @@
 
 @section('content')
 
-  <h1 class="title is-5">編輯權限：{{ $permission->name }}（ID：{{ $permission->id }}）</h1>
+  <h1 class="title is-4">編輯權限：{{ $permission->name }}（ID：{{ $permission->id }}）</h1>
   <div class="box">
     <form action="{{ route('permissions.update', $permission->id) }}" method="POST" role="form" novalidate>
     {{ method_field('PUT') }}
@@ -37,4 +37,16 @@
 
     </form>
   </div>
+@endsection
+
+
+@section('scripts')
+<script>
+  var adminMenu = new Vue({
+    el: '#admin-menu',
+    data: {
+      isOpen: true //side-menu
+    }
+  })
+</script>
 @endsection

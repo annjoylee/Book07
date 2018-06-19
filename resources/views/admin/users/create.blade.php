@@ -2,9 +2,9 @@
 
 @section('content')
 
-  <h1 class="title is-5">新增使用者</h1>
+  <h1 class="title is-4">新增使用者</h1>
 
-  <div class="box">
+  <div class="box" id="user-create-form">
     <form action="{{ route('users.store') }}" method="POST" role="form" novalidate>
     {{ csrf_field() }}
 
@@ -64,8 +64,14 @@
 
 @section('scripts')
   <script>
-    var app = new Vue({
-      el: '#app',
+    var adminMenu = new Vue({
+      el: '#admin-menu',
+      data: {
+        isOpen: false //side-menu
+      }
+    })
+    var userCreateForm = new Vue({
+      el: '#user-create-form',
       data: {
         email:'',
         autoPassword:true

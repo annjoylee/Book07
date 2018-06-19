@@ -37,3 +37,14 @@
 
   </div>
 @endsection
+
+@section('scripts')
+<script>
+  var adminMenu = new Vue({
+    el: '#admin-menu',
+    data: {
+      isOpen: true //side-menu
+    }
+  })
+</script>
+@endsection

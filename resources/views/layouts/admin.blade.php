@@ -8,7 +8,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Book07 -- 管理區</title>
+    <title>Book07 -- 控制台</title>
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -19,21 +20,26 @@
 
     @include('_includes.nav.main')
 
-    <div class="columns">
-      <div class="column is-2 side-menu">
-        @include('_includes.nav.admin')
-      </div>
-      <div class="column working-area">
-        @yield('content')
-      </div>
+    @include('_includes.nav.admin')
+
+    <div class="working-area">
+      @yield('content')
     </div>
+
 
   </div>
 
+  <!-- Scripts -->
+  <script src="{{ asset('js/app.js') }}"></script>
+  <script>
+    var navMain = new Vue({
+      el: '#nav-main',
+      data: {
+      }
+    })
+  </script>
+  @yield('scripts')
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    @yield('scripts')
 
 </body>
 

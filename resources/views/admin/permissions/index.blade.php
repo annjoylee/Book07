@@ -1,13 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
-  <div class="columns">
-    <div class="column is-narrow">
-      <h1 class="title is-4">權限列表</h1>
-    </div>
-    <div class="column">
-      <a href="{{ route('permissions.create') }}" class="button is-primary is-pulled-left">新增</a>
-    </div>
+  <div class="m-b-10">
+      <h1 class="title is-4 is-inline m-r-10">權限列表</h1>
+      <a href="{{ route('permissions.create') }}" class="button is-primary">新增</a>
   </div>
 
   <div class="box is-radiusless">
@@ -37,4 +33,15 @@
       </tbody>
     </table>
   </div>
+@endsection
+
+@section('scripts')
+<script>
+  var adminMenu = new Vue({
+    el: '#admin-menu',
+    data: {
+      isOpen: true //side-menu
+    }
+  })
+</script>
 @endsection

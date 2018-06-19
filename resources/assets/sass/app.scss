@@ -1,3 +1,7 @@
+// Import the initial variables of bulma
+@import "node_modules/bulma/sass/utilities/initial-variables";
+@import "node_modules/bulma/sass/utilities/functions";
+
 //Custom Initial Variables
 @import "_initials";
 

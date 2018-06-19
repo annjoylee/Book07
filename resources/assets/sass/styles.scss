@@ -36,3 +36,10 @@
     padding: 0 0.5rem;
   }
 }
+
+//hyperlink
+a {
+  &.is-info {
+    color: #7198a3;
+  }
+}

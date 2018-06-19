@@ -13,6 +13,14 @@
   height: auto;
 }
 
+.dropdown-menu {
+    min-width: auto;
+}
+
+[v-cloak] {
+  display: none;
+}
+
 
 //Buefy checkbox
 .b-checkbox {

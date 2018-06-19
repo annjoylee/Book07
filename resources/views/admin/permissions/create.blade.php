@@ -1,9 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
-  <h1 class="title is-5">新增權限</h1>
+  <h1 class="title is-4">新增權限</h1>
 
-  <div class="box">
+  <div class="box" id="permission-create-form">
     <form action="{{ route('permissions.store') }}" method="POST" role="form" novalidate>
     {{ csrf_field() }}
 
@@ -115,8 +115,14 @@
 
 @section('scripts')
   <script>
-    var app = new Vue({
-      el: '#app',
+    var adminMenu = new Vue({
+      el: '#admin-menu',
+      data: {
+        isOpen: true //side-menu
+      }
+    })
+    var permissionCreateForm = new Vue({
+      el: '#permission-create-form',
       data: {
         permissionType: 'crud',
         resource: '',

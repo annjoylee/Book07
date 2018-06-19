@@ -45,8 +45,6 @@ class RoleController extends Controller
           'description' => 'sometimes|max:255'
         ]);
 
-        dd($request);
-
         $role = new Role();
         $role->name = $request->name;
         $role->display_name = $request->display_name;
@@ -85,7 +83,7 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        $role = Role::findOrFail($id);
+        $role = Role::with('permissions')->findOrFail($id);
         $permissions = Permission::all();
         return view('admin.roles.edit')->withRole($role)->withPermissions($permissions);
     }
@@ -103,6 +101,8 @@ class RoleController extends Controller
           'display_name' => 'required|max:255',
           'description' => 'sometimes|max:255'
         ]);
+
+        dd($request);
 
         $role = Role::findOrFail($id);
 

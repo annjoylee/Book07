@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Role;
 use Session;
 use Hash;
 
@@ -16,7 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('id', 'desc')->paginate(10);
+        $users = User::with('roles')->orderBy('id', 'desc')->paginate('10');
+
         return view('admin.users.index')->withUsers($users);
     }
 
@@ -81,7 +83,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::findOrFail($id);
+        $user = User::with('roles')->findOrFail($id);
         return view('admin.users.show')->withUser($user);
     }
 
@@ -93,8 +95,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::findOrFail($id);
-        return view('admin.users.edit')->withUser($user);
+        $user = User::with('roles')->findOrFail($id);
+        $roles = Role::all();
+        return view('admin.users.edit')->withUser($user)->withRoles($roles);
     }
 
     /**
@@ -109,7 +112,7 @@ class UserController extends Controller
         $this->validateWith([
           'name' => 'required|max:255',
           'email' => 'required|email|unique:users,email,'.$id, //Ignore the current id
-          'password' => 'sometimes|string|min:6|confirmed'
+          'password' => 'sometimes|string|min:6'
         ]);
 
         $user = User::findOrFail($id);
@@ -130,6 +133,8 @@ class UserController extends Controller
         }
 
       $user->save();
+      $user->syncRoles($request->roles);
+
       return redirect()->route('users.show', $id);
     }
 

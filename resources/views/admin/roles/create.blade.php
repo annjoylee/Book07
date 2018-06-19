@@ -3,7 +3,7 @@
 @section('content')
 
   <h1 class="title is-4">新增身份：</h1>
-  <div class="box">
+  <div class="box" id="role-create-form">
     <form action="{{ route('roles.store') }}" method="POST" role="form" novalidate>
     {{ csrf_field() }}
 
@@ -74,17 +74,24 @@
 @section('scripts')
 
 <script>
-var app = new Vue({
-  el: '#app',
-  data: {
-    displayName:''
-  },
-  computed: {
-    name: function(){
-      return this.displayName.replace(' ', '-').toLowerCase();
+  var adminMenu = new Vue({
+    el: '#admin-menu',
+    data: {
+      isOpen: true //side-menu
     }
-  }
-})
+  })
+
+  var roleCreateForm = new Vue({
+    el: '#role-create-form',
+    data: {
+      displayName:''
+    },
+    computed: {
+      name: function(){
+        return this.displayName.replace(' ', '-').toLowerCase();
+      }
+    }
+  })
 
 </script>
 
