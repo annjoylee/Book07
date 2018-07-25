@@ -4,7 +4,7 @@
 
   <h1 class="title is-4">編輯使用者</h1>
 
-  <div class="box" id="user-update-form">
+  <div class="box">
     <form action="{{ route('users.update', $user->id) }}" method="POST" role="form" novalidate>
     {{ method_field('PUT') }}
     {{ csrf_field() }}
@@ -91,7 +91,7 @@
       }
     })
     var userUpdateForm = new Vue({
-      el: '#user-update-form',
+      el: '#app',
       data: {
         passwordOptions:'keep',
         roles: {!! $user->roles->pluck('id') !!}

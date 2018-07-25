@@ -10,6 +10,25 @@
     </ul>
 
     <p class="menu-label">
+      資料庫管理
+    </p>
+    <ul class="menu-list">
+      <li><a href="{{ route('books.index') }}"
+        class="{{ Route::currentRouteNamed('books.index') ? 'is-active' : '' }}
+        {{ Route::currentRouteNamed('books.create') ? 'is-active' : '' }}
+        {{ Route::currentRouteNamed('books.show') ? 'is-active' : '' }}
+        {{ Route::currentRouteNamed('books.edit') ? 'is-active' : '' }}">
+        圖書資料庫</a></li>
+      <li><a href="{{ route('persons.index') }}"
+        class="{{ Route::currentRouteNamed('persons.index') ? 'is-active' : '' }}
+        {{ Route::currentRouteNamed('persons.create') ? 'is-active' : '' }}
+        {{ Route::currentRouteNamed('persons.show') ? 'is-active' : '' }}
+        {{ Route::currentRouteNamed('persons.edit') ? 'is-active' : '' }}">
+        作者資料庫</a></li>
+    </ul>
+
+
+    <p class="menu-label">
       使用者管理
     </p>
     <ul class="menu-list">

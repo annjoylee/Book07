@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::prefix('admin')->middleware('role:curator|administrator|librarian|assistant|member')->group(function() {
   Route::get('/', 'AdminController@dashboard')->name('admin');
+  Route::resource('/books', 'BookController');
+  Route::resource('/persons', 'PersonController');
   Route::resource('/users', 'UserController');
   Route::resource('/roles', 'RoleController');
   Route::resource('/permissions', 'PermissionController', ['except' => 'destroy']);

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="columns is-centered m-t-5" id="login-form">
+<div class="columns is-centered m-t-5">
   <div class="column is-one-third">
     <div class="card">
       <header class="card-header">
@@ -69,7 +69,7 @@
 @section('scripts')
   <script>
     var app = new Vue({
-      el: '#login-form'
+      el: '#app'
     });
   </script>
 @endsection

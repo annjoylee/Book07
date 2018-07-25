@@ -16,18 +16,15 @@
 </head>
 <body>
 
-  <div id="app">
 
     @include('_includes.nav.main')
 
     @include('_includes.nav.admin')
 
-    <div class="working-area">
+    <div class="working-area" id="app">
       @yield('content')
     </div>
 
-
-  </div>
 
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}"></script>

@@ -4,7 +4,7 @@
 
   <h1 class="title is-4">新增使用者</h1>
 
-  <div class="box" id="user-create-form">
+  <div class="box">
     <form action="{{ route('users.store') }}" method="POST" role="form" novalidate>
     {{ csrf_field() }}
 
@@ -71,7 +71,7 @@
       }
     })
     var userCreateForm = new Vue({
-      el: '#user-create-form',
+      el: '#app',
       data: {
         email:'',
         autoPassword:true

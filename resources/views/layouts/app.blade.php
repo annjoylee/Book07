@@ -16,10 +16,11 @@
 <body>
 
 
-    <div id="app">
+
 
       @include('_includes.nav.main')
 
+    <div id="app">
       @yield('content')
     </div>
 

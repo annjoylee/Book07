@@ -3,7 +3,7 @@
 @section('content')
   <h1 class="title is-4">新增權限</h1>
 
-  <div class="box" id="permission-create-form">
+  <div class="box">
     <form action="{{ route('permissions.store') }}" method="POST" role="form" novalidate>
     {{ csrf_field() }}
 
@@ -122,7 +122,7 @@
       }
     })
     var permissionCreateForm = new Vue({
-      el: '#permission-create-form',
+      el: '#app',
       data: {
         permissionType: 'crud',
         resource: '',

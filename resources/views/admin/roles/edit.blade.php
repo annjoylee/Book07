@@ -3,7 +3,7 @@
 @section('content')
 
   <h1 class="title is-4">編輯身份：<em>{{ $role->name }}</em></h1>
-  <div class="box" id="role-update-form">
+  <div class="box">
     <form action="{{ route('roles.update', $role->id) }}" method="POST" role="form" novalidate>
     {{ method_field('PUT') }}
     {{ csrf_field() }}
@@ -61,7 +61,7 @@
     }
   })
   var roleUpdateForm = new Vue({
-    el: '#role-update-form',
+    el: '#app',
     data: {
       permissions: {!! $role->permissions->pluck('id') !!}
     }
